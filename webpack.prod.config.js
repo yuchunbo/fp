@@ -13,7 +13,7 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
         filename: '[hash].[name].bundle.js',
         chunkFilename: '[hash].[id].bundle.js',
-        publicPath: '/fprmui/fp/build/'
+        publicPath: '/fprmui/build/'
     },
     module: {
         loaders: [
