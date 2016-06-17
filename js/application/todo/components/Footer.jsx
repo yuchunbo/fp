@@ -17,7 +17,7 @@ class Footer extends React.Component {
         };
         return (
             <footer style={ footerStyle }>
-              <span>{ '\u00A9 2016 Howard.Zuo, All rights reserved.' }</span>
+              <span>{ '\u00A9 于洛舒' }</span>
             </footer>
             );
     }
