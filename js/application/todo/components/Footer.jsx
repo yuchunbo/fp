@@ -19,7 +19,7 @@ class Footer extends React.Component {
         };
         return (
             <footer style={ footerStyle }>
-              <span>{ '宠辱不惊 闲看庭前花开花落' }</span><br/><span>{ '去留无意 漫随天外云卷云舒'}</span>
+              <span>{ '宠辱不惊 闲看庭前花开花落 haha' }</span><br/><span>{ '去留无意 漫随天外云卷云舒'}</span>
             </footer>
             );
     }
