@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import $ from 'jquery/src/jquery';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import lightTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 
@@ -26,13 +27,17 @@ class Login extends React.Component {
 	login(){
 		let username = this.refs['username'].getValue();
 		let password = this.refs['password'].getValue();
-		let URL = 'http://123.56.128.70/fpapi/index.php?s=Home/Logreg/login';
-		let body = JSON.stringify({user_login:username,user_pass:password});
+		let URL = '/fpapi/index.php?s=Home/Logreg/login';
+		let params = {user_login:username,user_pass:password};
 
-		var request = new Request(URL, {method:'post',body: body});  
-		fetch(request).then(function(response) {  
-			console.log(response.json());
-		});  
+		$.ajax({
+			url:URL,
+			data:params,
+			type:'post',
+			success:function(res){
+				console.log(res);
+			}
+		})  
 	}
 
     render() {
