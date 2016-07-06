@@ -45,7 +45,6 @@ class Header extends React.Component {
         return (
             <AppBar title={this.props.title}
               iconClassNameLeft="icon-html5"
-              iconElementRight={ <IconButton iconClassName="icon-github-1" onClick={ this._onRightClick.bind(this) } tooltip="View Source" /> }
               onLeftIconButtonTouchTap={ this._onLeftClick.bind(this) }
               zDepth={ this.state.zDepth } />
             );

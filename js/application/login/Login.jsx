@@ -78,7 +78,13 @@ class Login extends React.Component {
 		];
         return (
             <div>
-                <Header title="登录"/>
+                <Header
+				    title="登录"
+					iconClassNameLeft="icon-html5"
+					iconClassNameRight="icon-github-1"
+					leftHref=""
+					rightHref=""
+			    />
                 <Panel>
                     <TextField
 						ref="username"
@@ -87,6 +93,7 @@ class Login extends React.Component {
                     />
                     <TextField
 						ref="password"
+						type="password"
                         hintText="密码"
                         floatingLabelText="请输入密码"
                     />
