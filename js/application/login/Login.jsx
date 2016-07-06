@@ -31,7 +31,7 @@ class Login extends React.Component {
 
 		var request = new Request(URL, {method:'post',body: body});  
 		fetch(request).then(function(response) {  
-			console.log(response.json());  
+			console.log(response.json());
 		});  
 	}
 
