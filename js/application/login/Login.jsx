@@ -11,18 +11,27 @@ import Panel from '../components/Panel.jsx';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import Dialog from 'material-ui/Dialog';
 
 
 class Login extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {open:false};
     }
 
     getChildContext() {
         return {muiTheme: getMuiTheme(lightTheme)};
     }
+
+	handleOpen() {
+        this.setState({open: true});
+    };
+
+	handleClose() {
+	    this.setState({open: false});
+    };
 
 	login(){
 		let username = this.refs['username'].getValue();
@@ -32,6 +41,7 @@ class Login extends React.Component {
 			user_login:username,
 			user_pass:password
 		};
+		let self = this;
 
 		$.ajax({
 			url:URL,
@@ -39,6 +49,18 @@ class Login extends React.Component {
 			type:'post',
 			success:function(res){
 				console.log(res);
+				if(res=='success'){
+					self.setState({
+						hint:'登录成功',
+						open:true
+					})
+				    location.href = './#/index';
+				}else{
+					self.setState({
+						hint:'用户名与密码不符',
+						open:true
+					})
+				}
 			}
 		})  
 	}
@@ -47,6 +69,13 @@ class Login extends React.Component {
 		let style = {
 			margin:'10px'
 		}
+		const actions = [
+		  <RaisedButton
+			label="确定"
+			primary={true}
+			onTouchTap={this.handleClose.bind(this)}
+		  />
+		];
         return (
             <div>
                 <Header title="登录"/>
@@ -65,6 +94,13 @@ class Login extends React.Component {
                         <RaisedButton label="注册" style={style} secondary={true}/>
                         <RaisedButton label="登录" style={style} primary={true} onClick={this.login.bind(this)}/>
                     </div>
+					<Dialog
+					  actions={actions}
+					  modal={false}
+					  open={this.state.open}
+					>
+					{this.state.hint}
+					</Dialog>
                 </Panel>
                 <Footer/>
             </div>
