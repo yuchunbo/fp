@@ -14,6 +14,7 @@ import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router';
 
 
 import Login from 'js/application/login/Login.jsx';
+import Register from 'js/application/register/Register.jsx';
 import Factory from 'js/application/factory/Factory.jsx';
 
 class Entrance {
@@ -45,6 +46,7 @@ class Entrance {
             <Router>
             <Route path="/" component={Application}/>
             <Route path="login" component={Login}/>
+            <Route path="register" component={Register}/>
             <Route path="factory" component={Factory}/>
             </Router>
     ), document.querySelector('#view'));

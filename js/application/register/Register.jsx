@@ -14,7 +14,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
 
 
-class Login extends React.Component {
+class Register extends React.Component {
 
     constructor(props) {
         super(props);
@@ -33,9 +33,10 @@ class Login extends React.Component {
 	    this.setState({open: false});
     };
 
-	login(){
+	register(){
 		let username = this.refs['username'].getValue();
 		let password = this.refs['password'].getValue();
+		let verifyPassword = this.refs['verifyPassword'].getValue();
 		let URL = '/fpapi/index.php?s=Home/Logreg/login';
 		let params = {
 			user_login:username,
@@ -65,13 +66,10 @@ class Login extends React.Component {
 		})  
 	}
 
-	goRegister() {
-		location.href = './#/register';
-	}
-
     render() {
 		let style = {
-			margin:'10px'
+			margin:'10px',
+			width:'256px'
 		}
 		let dialogStyle = {
 			textAlign:'center'
@@ -89,7 +87,7 @@ class Login extends React.Component {
         return (
             <div>
                 <Header
-				    title="登录"
+				    title="注册"
 					iconClassNameLeft=""
 					iconClassNameRight=""
 					leftHref=""
@@ -107,9 +105,14 @@ class Login extends React.Component {
                         hintText="密码"
                         floatingLabelText="请输入密码"
                     />
+					<TextField
+						ref="verifyPassword"
+						type="password"
+						hintText="确认密码"
+						floatingLabelText="再次输入密码"
+					/>
                     <div>
-                        <RaisedButton label="注册" style={style} secondary={true} onClick={this.goRegister.bind(this)}/>
-                        <RaisedButton label="登录" style={style} primary={true} onClick={this.login.bind(this)}/>
+                        <RaisedButton label="注册" style={style} primary={true} onClick={this.register.bind(this)}/>
                     </div>
 					<Dialog
 					  actions={actions}
@@ -127,8 +130,8 @@ class Login extends React.Component {
     }
 }
 
-Login.childContextTypes = {
+Register.childContextTypes = {
     muiTheme: React.PropTypes.object
 };
 
-export default Login;
+export default Register;
