@@ -27,7 +27,7 @@ class Login extends React.Component {
 		let username = this.refs['username'].getValue();
 		let password = this.refs['password'].getValue();
 		let URL = 'http://123.56.128.70/fpapi/index.php?s=Home/Logreg/login';
-		let body = JSON.stringify({username:username,password:password});
+		let body = JSON.stringify({user_login:username,user_pass:password});
 
 		var request = new Request(URL, {method:'post',body: body});  
 		fetch(request).then(function(response) {  
