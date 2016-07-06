@@ -69,6 +69,12 @@ class Login extends React.Component {
 		let style = {
 			margin:'10px'
 		}
+		let dialogStyle = {
+			textAlign:'center'
+		}
+		let actionsContainerStyle = {
+			textAlign:'center'
+		}
 		const actions = [
 		  <RaisedButton
 			label="确定"
@@ -103,6 +109,8 @@ class Login extends React.Component {
                     </div>
 					<Dialog
 					  actions={actions}
+					  style={dialogStyle}
+					  actionsContainerStyle={actionsContainerStyle}
 					  modal={false}
 					  open={this.state.open}
 					>
