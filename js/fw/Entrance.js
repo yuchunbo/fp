@@ -10,6 +10,11 @@ import {Splash} from 'splash-screen';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Application from 'js/application/Application.jsx';
+import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router';
+
+
+import Login from 'js/application/login/Login.jsx';
+import Factory from 'js/application/factory/Factory.jsx';
 
 class Entrance {
 
@@ -36,7 +41,13 @@ class Entrance {
     }
 
     launch() {
-        ReactDOM.render(<Application />, document.querySelector('#view'));
+        ReactDOM.render((
+            <Router>
+            <Route path="/" component={Application}/>
+            <Route path="login" component={Login}/>
+            <Route path="factory" component={Factory}/>
+            </Router>
+    ), document.querySelector('#view'));
     }
 
     run() {
