@@ -28,7 +28,10 @@ class Login extends React.Component {
 		let username = this.refs['username'].getValue();
 		let password = this.refs['password'].getValue();
 		let URL = '/fpapi/index.php?s=Home/Logreg/login';
-		let params = {user_login:username,user_pass:password};
+		let params = {
+			user_login:username,
+			user_pass:password
+		};
 
 		$.ajax({
 			url:URL,
