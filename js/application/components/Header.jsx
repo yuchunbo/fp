@@ -18,12 +18,12 @@ class Header extends React.Component {
     }
 
     _onRightClick(e) {
-        window.location.href = 'https://github.com/leftstick/generator-material-react';
+        window.location.href = this.props.rightHref;
         event.stop(e);
     }
 
     _onLeftClick(e) {
-        window.location.href = 'http://www.taobao.com/';
+        window.location.href = this.props.leftHref;
         event.stop(e);
     }
 
@@ -42,10 +42,17 @@ class Header extends React.Component {
     }
 
     render() {
+		let style = {
+			textAlign:'center'
+		}
         return (
             <AppBar title={this.props.title}
-              iconClassNameLeft="icon-html5"
+			  showMenuIconButton={false}
+			  style={style}
+              iconClassNameLeft={ this.props.iconClassNameLeft }
+              iconClassNameRight={ this.props.iconClassNameRight } 
               onLeftIconButtonTouchTap={ this._onLeftClick.bind(this) }
+			  onRightIconButtonTouchTap={ this._onRightClick.bind(this) }
               zDepth={ this.state.zDepth } />
             );
     }

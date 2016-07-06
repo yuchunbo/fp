@@ -80,12 +80,12 @@ class Login extends React.Component {
             <div>
                 <Header
 				    title="登录"
-					iconClassNameLeft="icon-html5"
-					iconClassNameRight="icon-github-1"
+					iconClassNameLeft=""
+					iconClassNameRight=""
 					leftHref=""
 					rightHref=""
 			    />
-                <Panel>
+                <Panel textAlign="center">
                     <TextField
 						ref="username"
                         hintText="用户名"

@@ -10,6 +10,8 @@ class Footer extends React.Component {
 
     render() {
         let footerStyle = {
+			position:'fixed',
+			bottom:0,
             display: 'block',
             width: '100%',
             textAlign: 'center',
