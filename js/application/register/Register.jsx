@@ -31,7 +31,9 @@ class Register extends React.Component {
 
 	handleClose() {
 	    this.setState({open: false});
-		location.href = './#/login';
+		if(this.state.regiSuccess){
+			location.href = './#/login';
+		}
     };
 
 	handleChangeUsername(event){
@@ -73,6 +75,7 @@ class Register extends React.Component {
 		Api.fetch('register',params,function(res){
 			self.setState({
 				hint:'注册成功',
+				regiSuccess:true,
 				open:true
 			})
 		}) 
