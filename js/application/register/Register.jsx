@@ -1,13 +1,13 @@
 'use strict';
 
 import React from 'react';
-import $ from 'jquery/src/jquery';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import lightTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 import Panel from '../components/Panel.jsx';
+import Api from '../components/Api';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -33,37 +33,49 @@ class Register extends React.Component {
 	    this.setState({open: false});
     };
 
+	handleChangeUsername(event){
+		this.setState({
+			username:event.target.value
+		})
+	}
+	handleChangePassword(event){
+		this.setState({
+			password:event.target.value
+		})
+	}
+	handleChangeVerifyPassword(event){
+		this.setState({
+			verifyPassword:event.target.value
+		})
+	}
+
 	register(){
-		let username = this.refs['username'].getValue();
-		let password = this.refs['password'].getValue();
-		let verifyPassword = this.refs['verifyPassword'].getValue();
-		let URL = '/fpapi/index.php?s=Home/Logreg/login';
+		//let username = this.refs['username'].getValue();
+		//let password = this.refs['password'].getValue();
+		//let verifyPassword = this.refs['verifyPassword'].getValue();
+		let username = this.state.username;
+		let password = this.state.password;
+		let verifyPassword = this.state.verifyPassword;
+		if(password !=verifyPassword){
+			this.setState({
+				hint:'两次密码输入不一致',
+				open:true
+			})
+			return false;
+		}
 		let params = {
 			user_login:username,
 			user_pass:password
 		};
 		let self = this;
 
-		$.ajax({
-			url:URL,
-			data:params,
-			type:'post',
-			success:function(res){
-				console.log(res);
-				if(res=='success'){
-					self.setState({
-						hint:'登录成功',
-						open:true
-					})
-				    location.href = './#/index';
-				}else{
-					self.setState({
-						hint:'用户名与密码不符',
-						open:true
-					})
-				}
-			}
-		})  
+		Api.fetch('register',params,function(res){
+			self.setState({
+				hint:'注册成功',
+				open:true
+			})
+			location.href = './#/login';
+		}) 
 	}
 
     render() {
@@ -98,18 +110,24 @@ class Register extends React.Component {
 						ref="username"
                         hintText="用户名"
                         floatingLabelText="请输入用户名"
+						value={this.state.username}
+						onChange={this.handleChangeUsername.bind(this)}
                     />
                     <TextField
 						ref="password"
 						type="password"
                         hintText="密码"
                         floatingLabelText="请输入密码"
+						value={this.state.password}
+						onChange={this.handleChangePassword.bind(this)}
                     />
 					<TextField
 						ref="verifyPassword"
 						type="password"
 						hintText="确认密码"
 						floatingLabelText="再次输入密码"
+						value={this.state.verifyPassword}
+						onChange={this.handleChangeVerifyPassword.bind(this)}
 					/>
                     <div>
                         <RaisedButton label="注册" style={style} primary={true} onClick={this.register.bind(this)}/>

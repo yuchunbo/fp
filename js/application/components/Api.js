@@ -8,6 +8,7 @@ let PATH = '/fpapi/index.php?s=Home/';
 let restArr = (api) => {
 	let arr = {
 		login:['Logreg/login','post'],
+		register:['Logreg/register','post']
 	}
 	return arr[api];
 }
@@ -22,7 +23,7 @@ Api.fetch = (api,params,succCb,errorCb) => {
 				succCb && succCb.apply(this,arguments);
 			},
 			error:function(e){
-				consoel.log(e);
+				console.log(e);
 				errorCb && errorCb.apply(this,arguments);
 			}
 		})  
