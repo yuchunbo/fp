@@ -17,11 +17,12 @@ Api.fetch = (api,params,succCb,errorCb) => {
     $.ajax({
 			url:PATH+req[0],
 			data:params,
-			type:req[0],
+			type:req[1],
 			success:function(res){
 				succCb && succCb.apply(this,arguments);
 			},
 			error:function(e){
+				consoel.log(e);
 				errorCb && errorCb.apply(this,arguments);
 			}
 		})  
