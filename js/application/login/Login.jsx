@@ -1,13 +1,13 @@
 'use strict';
 
 import React from 'react';
-import $ from 'jquery/src/jquery';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import lightTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 import Panel from '../components/Panel.jsx';
+import Api   from '../components/Api';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -36,33 +36,27 @@ class Login extends React.Component {
 	login(){
 		let username = this.refs['username'].getValue();
 		let password = this.refs['password'].getValue();
-		let URL = '/fpapi/index.php?s=Home/Logreg/login';
 		let params = {
 			user_login:username,
 			user_pass:password
 		};
 		let self = this;
 
-		$.ajax({
-			url:URL,
-			data:params,
-			type:'post',
-			success:function(res){
-				console.log(res);
-				if(res=='success'){
-					self.setState({
-						hint:'登录成功',
-						open:true
-					})
-				    location.href = './#/index';
-				}else{
-					self.setState({
-						hint:'用户名与密码不符',
-						open:true
-					})
-				}
+		Api.fetch('login',params,function(res){
+			console.log(res);
+			if(res=='success'){
+				self.setState({
+					hint:'登录成功',
+					open:true
+				})
+				location.href = './#/index';
+			}else{
+				self.setState({
+					hint:'用户名与密码不符',
+					open:true
+				})
 			}
-		})  
+		});
 	}
 
 	goRegister() {
