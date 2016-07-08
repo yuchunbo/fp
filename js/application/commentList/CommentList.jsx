@@ -11,7 +11,14 @@ import Api   from '../components/Api';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import Dialog from 'material-ui/Dialog';
+import {List, ListItem} from 'material-ui/List';
+import Divider from 'material-ui/Divider';
+import Avatar from 'material-ui/Avatar';
+import {grey400, darkBlack, lightBlack} from 'material-ui/styles/colors';
+import IconButton from 'material-ui/IconButton';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
 
 class CommentList extends React.Component {
 
@@ -24,8 +31,9 @@ class CommentList extends React.Component {
 
     componentWillMount(){
         let self = this;
+		let bid = this.props.params.bid;
         let params = {
-            bid:''
+            bid:bid
         }
         Api.fetch('commentList',params,function (res) {
             self.setState({
@@ -39,6 +47,25 @@ class CommentList extends React.Component {
     }
 
     render() {
+		let commentList = this.state.commentList.map(function(item,index){
+			console.log('index',index);
+			return (
+					<div>
+				<ListItem
+				  leftAvatar={<Avatar src={item.avatar} />}
+				  primaryText={item.content}
+				  secondaryText={
+					<p>
+					  <span style={{color: darkBlack}}>{item.name}</span> --
+					  <span style={{color: darkBlack}}>{item.company_address}</span> --
+					  {item.timestamp}
+					</p>
+				  }
+				  secondaryTextLines={2}/>
+				  <Divider inset={true} />
+				  </div>
+			)
+		})
         return (
             <div>
                 <Header
@@ -49,7 +76,7 @@ class CommentList extends React.Component {
                     rightHref=""
                 />
                 <Panel>
-                    CommentList
+					<List>{commentList}</List>
                 </Panel>
                 <Footer/>
             </div>
