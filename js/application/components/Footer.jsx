@@ -1,6 +1,8 @@
 'use strict';
 
 import React from 'react';
+import {Tabs, Tab} from 'material-ui/Tabs';
+import FontIcon from 'material-ui/FontIcon';
 
 class Footer extends React.Component {
 
@@ -10,16 +12,33 @@ class Footer extends React.Component {
 
     render() {
         let footerStyle = {
+			display:this.props.display,
 			position:'fixed',
 			bottom:0,
-            display: 'block',
             width: '100%',
             textAlign: 'center',
             marginTop: '15px'
         };
         return (
             <footer style={ footerStyle }>
-              <span>{ '于洛舒' }</span>
+              <Tabs>
+				<Tab
+				  icon={<FontIcon className="material-icons">school</FontIcon>}
+				  label="专家"
+				/>
+				<Tab
+				  icon={<FontIcon className="material-icons">group</FontIcon>}
+				  label="人脉"
+				/>
+				<Tab
+				  icon={<FontIcon className="material-icons">receipt</FontIcon>}
+				  label="甩单"
+				/>
+				<Tab
+				  icon={<FontIcon className="material-icons">account_circle</FontIcon>}
+				  label="我"
+				/>
+			  </Tabs>
             </footer>
             );
     }

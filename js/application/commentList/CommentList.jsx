@@ -25,8 +25,8 @@ class CommentList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            commentList:[{"bid":"1","receiver_uid":"16","content":"\u8fd9\u56de\u5e94\u8be5\u53ef\u4ee5\u4e86","timestamp":"1459926903","id":"1","uid":"16","name":"\u4e8e\u6625\u6ce2","gender":"0","age":"30","province":"0","city":"0","mobile":"18618401842","email":"yucubor@163.com","avatar":"","experience":"5","company_name":"\u963f\u91cc\u5065\u5eb7","company_type":"\u4e92\u8054\u7f51","job_name":"web\u524d\u7aef","company_address":"\u5317\u4eac\u671b\u4eac","labels":"\u5e05\u54e5\u3001\u624d\u5b50\u3001\u7ec5\u58eb","major_business":"\u7801\u519c","motto":"\u6cf1\u6cf1"},{"bid":"1","receiver_uid":"16","content":"\u518d\u662f\u4e00\u6761","timestamp":"1459928148","id":"1","uid":"16","name":"\u4e8e\u6625\u6ce2","gender":"0","age":"30","province":"0","city":"0","mobile":"18618401842","email":"yucubor@163.com","avatar":"","experience":"5","company_name":"\u963f\u91cc\u5065\u5eb7","company_type":"\u4e92\u8054\u7f51","job_name":"web\u524d\u7aef","company_address":"\u5317\u4eac\u671b\u4eac","labels":"\u5e05\u54e5\u3001\u624d\u5b50\u3001\u7ec5\u58eb","major_business":"\u7801\u519c","motto":"\u6cf1\u6cf1"}]
-        };
+			commentList:[]
+		};
     }
 
     componentWillMount(){
@@ -48,7 +48,6 @@ class CommentList extends React.Component {
 
     render() {
 		let commentList = this.state.commentList.map(function(item,index){
-			console.log('index',index);
 			return (
 					<div>
 				<ListItem

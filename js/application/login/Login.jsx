@@ -115,7 +115,7 @@ class Login extends React.Component {
 					{this.state.hint}
 					</Dialog>
                 </Panel>
-                <Footer/>
+                <Footer display="none"/>
             </div>
         );
     }
