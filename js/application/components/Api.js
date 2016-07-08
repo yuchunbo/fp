@@ -8,7 +8,8 @@ let PATH = '/fpapi/index.php?s=Home/';
 let restArr = (api) => {
 	let arr = {
 		login:['Logreg/login','post'],
-		register:['Logreg/register','post']
+		register:['Logreg/register','post'],
+		commentList:['Transaction/getCommentList','get']
 	}
 	return arr[api];
 }

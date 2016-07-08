@@ -17,7 +17,7 @@ class Factory extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {todoList: [], filter: 'all'};
+        this.state = {};
     }
 
     getChildContext() {
