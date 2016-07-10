@@ -49,7 +49,7 @@ class Login extends React.Component {
 					hint:'登录成功',
 					open:true
 				})
-				location.href = './#/index';
+				location.href = './#/social';
 			}else{
 				self.setState({
 					hint:'用户名与密码不符',

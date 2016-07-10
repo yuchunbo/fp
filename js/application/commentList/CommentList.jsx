@@ -16,8 +16,6 @@ import Divider from 'material-ui/Divider';
 import Avatar from 'material-ui/Avatar';
 import {grey400, darkBlack, lightBlack} from 'material-ui/styles/colors';
 import IconButton from 'material-ui/IconButton';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 
 class CommentList extends React.Component {
