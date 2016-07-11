@@ -22,6 +22,10 @@ Api.fetch = (api,params,succCb,errorCb) => {
 			data:params,
 			type:req[1],
 			success:function(res){
+				if(res.code==-1){
+					location.href = './#/login';
+					return false;
+				}
 				succCb && succCb.apply(this,arguments);
 			},
 			error:function(e){
