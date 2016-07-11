@@ -44,7 +44,7 @@ class Login extends React.Component {
 
 		Api.fetch('login',params,function(res){
 			console.log(res);
-			if(res.message=='success'){
+			if(JSON.parse(res).message=='success'){
 				self.setState({
 					hint:'登录成功',
 					open:true
