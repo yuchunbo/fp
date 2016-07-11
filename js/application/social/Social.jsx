@@ -149,7 +149,9 @@ class Social extends React.Component {
                     </SelectField>
                     <List>{socialList}</List>
                 </Panel>
-                <Footer/>
+                <Footer
+				  initialSelectedIndex="1"
+				/>
             </div>
         );
     }

@@ -22,10 +22,7 @@ Api.fetch = (api,params,succCb,errorCb) => {
 			data:params,
 			type:req[1],
 			success:function(res){
-				console.log(typeof(res));
-				console.log(JSON.parse(res).code);
-				console.log(JSON.parse(res).code==-1);
-				if(res.code==-1){
+				if(JSON.parse(res).code==-1){
 					location.href = './#/login';
 					return false;
 				}else{

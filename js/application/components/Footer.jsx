@@ -10,6 +10,10 @@ class Footer extends React.Component {
         super(props);
     }
 
+	changeTab(e){
+		console.log(e);
+	}
+
     render() {
         let footerStyle = {
 			display:this.props.display,
@@ -21,7 +25,10 @@ class Footer extends React.Component {
         };
         return (
             <footer style={ footerStyle }>
-              <Tabs>
+              <Tabs
+			    initialSelectedIndex={this.props.initialSelectedIndex}
+				onChange={this.changeTab.bind(this)}
+			  >
 				<Tab
 				  icon={<FontIcon className="material-icons">school</FontIcon>}
 				  label="专家"
