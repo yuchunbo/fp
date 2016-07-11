@@ -49,7 +49,7 @@ class Social extends React.Component {
     }
 
 	componentWillMount(){
-		fetchDataThenRenderList();
+		this.fetchDataThenRenderList();
 	}
 
     handleIndusChange (event, index, indusVal) {
