@@ -7,6 +7,7 @@ import lightTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 import Panel from '../components/Panel.jsx';
+import Api   from '../components/Api';
 
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
@@ -39,7 +40,7 @@ class Social extends React.Component {
             indusVal:'',
             areaVal:'',
             busiVal:'',
-            socialList:[{"id":"1","uid":"16","name":"\u4e8e\u6625\u6ce2","gender":"0","age":"30","province":"0","city":"0","mobile":"18618401842","email":"yucubor@163.com","avatar":"","experience":"5","company_name":"\u963f\u91cc\u5065\u5eb7","company_type":"\u4e92\u8054\u7f51","job_name":"web\u524d\u7aef","company_address":"\u5317\u4eac\u671b\u4eac","labels":"\u5e05\u54e5\u3001\u624d\u5b50\u3001\u7ec5\u58eb","major_business":"\u7801\u519c","motto":"\u6cf1\u6cf1"},{"id":"2","uid":"17","name":"\u6d4b\u8bd5\u5458","gender":"0","age":"30","province":"0","city":"0","mobile":"18510871665","email":"test@test.com","avatar":"http:\/\/tp2.sinaimg.cn\/2061701733\/180\/5670816717\/1","experience":"1","company_name":"test","company_type":"testest","job_name":"testttt","company_address":"tessss","labels":"ttt","major_business":"sss","motto":"\u6d4b\u8bd5\u4e00\u4e0b"}]
+            socialList:[]
         };
     }
 
@@ -47,20 +48,41 @@ class Social extends React.Component {
         return {muiTheme: getMuiTheme(lightTheme)};
     }
 
+	componentWillMount(){
+		fetchDataThenRenderList();
+	}
+
     handleIndusChange (event, index, indusVal) {
         this.setState({indusVal});
         console.log(this.state.indusVal);
+		this.fetchDataThenRenderList()
     }
 
     handleAreaChange (event, index, areaVal) {
         this.setState({areaVal});
         console.log(this.state.areaVal);
+		this.fetchDataThenRenderList()
     }
 
     handleBusiChange (event, index, busiVal) {
         this.setState({busiVal});
         console.log(this.state.busiVal);
+		this.fetchDataThenRenderList()
     }
+
+	fetchDataThenRenderList(){
+		let self = this;
+		let params = {
+			company_type:this.state.indusVal,
+			city:this.state.areaVal,
+			major_business:this.state.busiVal
+		}
+		Api.fetch('seekUsers',params,function(res){
+			self.setState({
+				socialList:res
+			})
+		})
+	}
 
     render() {
         let selectStyle = {

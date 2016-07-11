@@ -7,9 +7,10 @@ let PATH = '/fpapi/index.php?s=Home/';
 
 let restArr = (api) => {
 	let arr = {
-		login:['Logreg/login','post'],
-		register:['Logreg/register','post'],
-		commentList:['Transaction/getCommentList','get']
+		login : ['Logreg/login','post'],
+		register : ['Logreg/register','post'],
+		commentList : ['Transaction/getCommentList','get'],
+		seekUsers : ['Userinfo/seekUsers','get']
 	}
 	return arr[api];
 }
