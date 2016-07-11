@@ -22,11 +22,14 @@ Api.fetch = (api,params,succCb,errorCb) => {
 			data:params,
 			type:req[1],
 			success:function(res){
+				console.log(res);
+				console.log(res.code==-1);
 				if(res.code==-1){
 					location.href = './#/login';
 					return false;
+				}else{
+					succCb && succCb.apply(this,arguments);
 				}
-				succCb && succCb.apply(this,arguments);
 			},
 			error:function(e){
 				console.log(e);
