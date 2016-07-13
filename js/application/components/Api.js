@@ -10,7 +10,8 @@ let restArr = (api) => {
 		login : ['Logreg/login','post'],
 		register : ['Logreg/register','post'],
 		commentList : ['Transaction/getCommentList','get'],
-		seekUsers : ['Userinfo/seekUsers','get']
+		seekUsers : ['Userinfo/seekUsers','get'],
+		userDetail:['Userinfo/detail','get']
 	}
 	return arr[api];
 }

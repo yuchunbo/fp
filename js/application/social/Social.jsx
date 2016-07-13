@@ -85,7 +85,7 @@ class Social extends React.Component {
 	}
 	
 	hrefPersenInfo(uid){
-		location.href = './#/persenInfo/'+uid;
+		location.href = './#/personInfo/'+uid;
 	}
 
     render() {
