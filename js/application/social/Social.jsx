@@ -40,7 +40,7 @@ class Social extends React.Component {
             indusVal:'',
             areaVal:'',
             busiVal:'',
-            socialList:[]
+            socialList:[{"id":"1","uid":"16","name":"\u4e8e\u6625\u6ce2","gender":"0","age":"30","province":"0","city":"0","mobile":"18618401842","email":"yucubor@163.com","avatar":"","experience":"5","company_name":"\u963f\u91cc\u5065\u5eb7","company_type":"\u4e92\u8054\u7f51","job_name":"web\u524d\u7aef","company_address":"\u5317\u4eac\u671b\u4eac","labels":"\u5e05\u54e5\u3001\u624d\u5b50\u3001\u7ec5\u58eb","major_business":"\u7801\u519c","motto":"\u6cf1\u6cf1"},{"id":"2","uid":"17","name":"\u6d4b\u8bd5\u5458","gender":"0","age":"30","province":"0","city":"0","mobile":"18510871665","email":"test@test.com","avatar":"http:\/\/tp2.sinaimg.cn\/2061701733\/180\/5670816717\/1","experience":"1","company_name":"test","company_type":"testest","job_name":"testttt","company_address":"tessss","labels":"ttt","major_business":"sss","motto":"\u6d4b\u8bd5\u4e00\u4e0b"}]
         };
     }
 
@@ -83,11 +83,16 @@ class Social extends React.Component {
 			})
 		})
 	}
+	
+	hrefPersenInfo(uid){
+		location.href = './#/persenInfo/'+uid;
+	}
 
     render() {
         let selectStyle = {
             width:'30%'
         }
+		let self = this;
 
         let socialList = this.state.socialList.map(function(item,index){
             return (
@@ -102,7 +107,8 @@ class Social extends React.Component {
 					  {item.timestamp}
 					</p>
 				  }
-                        secondaryTextLines={2}/>
+                        secondaryTextLines={2}
+						onClick={self.hrefPersenInfo.bind(self,item.uid)}/>
                     <Divider inset={true} />
                 </div>
             )
