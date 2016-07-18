@@ -10,7 +10,7 @@ import Panel from '../components/Panel.jsx';
 import Api   from '../components/Api';
 
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import TextField from 'material-ui/TextField';
+import {Table, TableBody, TableRow, TableRowColumn} from 'material-ui/Table';
 import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
 
@@ -19,7 +19,7 @@ class PersonInfo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-			userInfo:{"id":"2","uid":"17","name":"\u6d4b\u8bd5\u5458","gender":"0","age":"30","province":"0","city":"0","mobile":"18510871665","email":"test@test.com","avatar":"http:\/\/tp2.sinaimg.cn\/2061701733\/180\/5670816717\/1","experience":"1","company_name":"test","company_type":"testest","job_name":"testttt","company_address":"tessss","labels":"ttt","major_business":"sss","motto":"\u6d4b\u8bd5\u4e00\u4e0b"}
+			userInfo:{}
 		};
     }
 
@@ -72,13 +72,43 @@ class PersonInfo extends React.Component {
 					<CardText>{this.state.userInfo.province} {this.state.userInfo.city}</CardText>
 					<CardText>{this.state.userInfo.mobile}</CardText>
 					<CardText>{this.state.userInfo.email}</CardText>
-				  </Card> 
+				    </Card>
+                    <Table>
+                        <TableBody
+                            displayRowCheckbox={false}>
+                            <TableRow>
+                                <TableRowColumn>公司名称</TableRowColumn>
+                                <TableRowColumn>{this.state.userInfo.company_name}</TableRowColumn>
+                            </TableRow>
+                            <TableRow>
+                                <TableRowColumn>公司地址</TableRowColumn>
+                                <TableRowColumn>{this.state.userInfo.company_address}</TableRowColumn>
+                            </TableRow>
+                            <TableRow>
+                                <TableRowColumn>她的标签</TableRowColumn>
+                                <TableRowColumn>{this.state.userInfo.labels}</TableRowColumn>
+                            </TableRow>
+                            <TableRow>
+                                <TableRowColumn>她的业务</TableRowColumn>
+                                <TableRowColumn></TableRowColumn>
+                            </TableRow>
+                            <TableRow>
+                                <TableRowColumn>主营业务</TableRowColumn>
+                                <TableRowColumn>{this.state.userInfo.major_business}</TableRowColumn>
+                            </TableRow>
+                            <TableRow>
+                                <TableRowColumn>个性签名</TableRowColumn>
+                                <TableRowColumn>{this.state.userInfo.motto}</TableRowColumn>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
                 </Panel>
                 <Footer/>
             </div>
         );
     }
 }
+
 
 PersonInfo.childContextTypes = {
     muiTheme: React.PropTypes.object

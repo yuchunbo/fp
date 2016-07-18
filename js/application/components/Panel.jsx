@@ -19,7 +19,7 @@ class Panel extends React.Component {
     _getPaperStyle() {
         let style = {
             minHeight: '350px',
-            margin: '5px auto 0 auto',
+            margin: '5px auto 72px auto',
             paddingBottom: '10px',
             backgroundColor: '#fff',
 			textAlign:this.props.textAlign
