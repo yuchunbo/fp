@@ -103,7 +103,8 @@ class PersonInfo extends React.Component {
                         </TableBody>
                     </Table>
                 </Panel>
-                <Footer/>
+                <Footer
+                    value="social"/>
             </div>
         );
     }

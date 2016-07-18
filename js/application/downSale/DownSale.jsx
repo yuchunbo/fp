@@ -15,9 +15,9 @@ import {List, ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Avatar from 'material-ui/Avatar';
 import {grey400, darkBlack, lightBlack} from 'material-ui/styles/colors';
-import IconButton from 'material-ui/IconButton';
 
-class Social extends React.Component {
+
+class DownSale extends React.Component {
 
     constructor(props) {
         super(props);
@@ -40,7 +40,7 @@ class Social extends React.Component {
             indusVal:'',
             areaVal:'',
             busiVal:'',
-            socialList:[]
+            billList:[]
         };
     }
 
@@ -48,67 +48,67 @@ class Social extends React.Component {
         return {muiTheme: getMuiTheme(lightTheme)};
     }
 
-	componentWillMount(){
-		this.fetchDataThenRenderList();
-	}
+    componentWillMount(){
+        this.fetchDataThenRenderList();
+    }
 
     handleIndusChange (event, index, indusVal) {
         this.setState({indusVal});
         console.log(this.state.indusVal);
-		this.fetchDataThenRenderList()
+        this.fetchDataThenRenderList()
     }
 
     handleAreaChange (event, index, areaVal) {
         this.setState({areaVal});
         console.log(this.state.areaVal);
-		this.fetchDataThenRenderList()
+        this.fetchDataThenRenderList()
     }
 
     handleBusiChange (event, index, busiVal) {
         this.setState({busiVal});
         console.log(this.state.busiVal);
-		this.fetchDataThenRenderList()
+        this.fetchDataThenRenderList()
     }
 
-	fetchDataThenRenderList(){
-		let self = this;
-		let params = {
-			company_type:this.state.indusVal,
-			city:this.state.areaVal,
-			major_business:this.state.busiVal
-		}
-		Api.fetch('seekUsers',params,function(res){
-			self.setState({
-				socialList:res
-			})
-		})
-	}
-	
-	hrefPersenInfo(uid){
-		location.href = './#/personInfo/'+uid;
-	}
+    fetchDataThenRenderList(){
+        let self = this;
+        let params = {
+            company_type:this.state.indusVal,
+            city:this.state.areaVal,
+            major_business:this.state.busiVal
+        }
+        Api.fetch('billList',params,function(res){
+            self.setState({
+                billList:res
+            })
+        })
+    }
+
+    hrefPersenInfo(bid){
+        location.href = './#/detail/'+bid;
+    }
 
     render() {
         let selectStyle = {
             width:'30%'
         }
-		let self = this;
+        let self = this;
 
-        let socialList = this.state.socialList.map(function(item,index){
+        let billList = this.state.billList.map(function(item,index){
             return (
                 <div>
                     <ListItem
                         leftAvatar={<Avatar src={item.avatar} />}
-                        primaryText={item.content}
+                        primaryText={item.p_name}
                         secondaryText={
 					<p>
-					  <span style={{color: darkBlack}}>{item.name}</span> --
-					  <span style={{color: darkBlack}}>{item.company_address}</span> --
-					  {item.timestamp}
+					  <span style={{color: darkBlack}}>金额：{item.amount}万</span><br/>
+					  <span style={{color: darkBlack}}>流水：{item.c_salary}万/月</span> --
+					  <span style={{color: darkBlack}}>{item.p_time}</span>
 					</p>
 				  }
-                        secondaryTextLines={2}
-						onClick={self.hrefPersenInfo.bind(self,item.uid)}/>
+                        secondaryTextLines={3}
+                        onClick={self.hrefPersenInfo.bind(self,item.bid)}/>
                     <Divider inset={true} />
                 </div>
             )
@@ -116,7 +116,7 @@ class Social extends React.Component {
         return (
             <div>
                 <Header
-                    title="人脉"
+                    title="甩单"
                     iconClassNameLeft=""
                     iconClassNameRight=""
                     leftHref=""
@@ -153,17 +153,17 @@ class Social extends React.Component {
                     >
                         {this.state.business}
                     </SelectField>
-                    <List>{socialList}</List>
+                    <List>{billList}</List>
                 </Panel>
                 <Footer
-				  value="social"/>
+                    value="bill"/>
             </div>
         );
     }
 }
 
-Social.childContextTypes = {
+DownSale.childContextTypes = {
     muiTheme: React.PropTypes.object
 };
 
-export default Social;
+export default DownSale;

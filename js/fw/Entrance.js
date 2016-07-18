@@ -19,6 +19,7 @@ import Social from 'js/application/social/Social.jsx';
 import Factory from 'js/application/factory/Factory.jsx';
 import CommentList from 'js/application/commentList/CommentList.jsx';
 import PersonInfo from 'js/application/personInfo/PersonInfo.jsx';
+import DownSale from 'js/application/downSale/DownSale.jsx';
 
 class Entrance {
 
@@ -54,6 +55,7 @@ class Entrance {
             <Route path="factory" component={Factory}/>
 			<Route path="commentList/:bid" component={CommentList}/>
 			<Route path="personInfo/:uid" component={PersonInfo}/>
+            <Route path="downSale" component={DownSale}/>
             </Router>
     ), document.querySelector('#view'));
     }
