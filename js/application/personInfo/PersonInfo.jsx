@@ -27,7 +27,7 @@ class PersonInfo extends React.Component {
         let self = this;
 		let uid = this.props.params.uid;
         let params = {
-            uid:uid
+            id:uid
         }
         Api.fetch('userDetail',params,function (res) {
 			if(res[0]){
