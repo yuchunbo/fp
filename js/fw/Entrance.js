@@ -55,7 +55,7 @@ class Entrance {
             <Route path="factory" component={Factory}/>
 			<Route path="commentList/:bid" component={CommentList}/>
 			<Route path="personInfo/:uid" component={PersonInfo}/>
-            <Route path="downSale" component={DownSale}/>
+            <Route path="bill" component={DownSale}/>
             </Router>
     ), document.querySelector('#view'));
     }
