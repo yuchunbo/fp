@@ -31,23 +31,23 @@ class MyBills extends React.Component {
     }
 
     componentWillMount(){
-        this.fetchDataThenRenderList();
+        this.fetchDataThenRenderList(this.state.value);
     }
 
     handleChange (value) {
         this.setState({
             value: value,
         });
-        this.fetchDataThenRenderList();
+        this.fetchDataThenRenderList(value);
     };
 
-    fetchDataThenRenderList(){
+    fetchDataThenRenderList(value){
         let self = this;
         let params = {
-            type:this.state.value
+            type:value
         }
         Api.fetch('billList',params,function(res){
-            if('receiver' == self.state.value){
+            if('receiver' == value){
                 self.setState({
                     receiverBillList:res
                 })
