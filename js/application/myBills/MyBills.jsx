@@ -30,17 +30,21 @@ class MyBills extends React.Component {
         return {muiTheme: getMuiTheme(lightTheme)};
     }
 
+    componentWillMount(){
+        this.fetchDataThenRenderList();
+    }
+
     handleChange (value) {
         this.setState({
             value: value,
         });
-        this.fetchDataThenRenderList(value);
+        this.fetchDataThenRenderList();
     };
 
-    fetchDataThenRenderList(value){
+    fetchDataThenRenderList(){
         let self = this;
         let params = {
-            type:value
+            type:this.state.value
         }
         Api.fetch('billList',params,function(res){
             if('receiver' == value){
