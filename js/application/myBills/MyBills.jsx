@@ -47,7 +47,7 @@ class MyBills extends React.Component {
             type:this.state.value
         }
         Api.fetch('billList',params,function(res){
-            if('receiver' == this.state.value){
+            if('receiver' == self.state.value){
                 self.setState({
                     receiverBillList:res
                 })
