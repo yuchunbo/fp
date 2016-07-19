@@ -118,9 +118,9 @@ class DownSale extends React.Component {
                 <Header
                     title="甩单"
                     iconClassNameLeft=""
-                    iconClassNameRight=""
+                    iconClassNameRight="icon-github-1"
                     leftHref=""
-                    rightHref=""
+                    rightHref="./#/myBills/"
                 />
                 <Panel>
                     <SelectField

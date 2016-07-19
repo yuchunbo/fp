@@ -20,6 +20,8 @@ import Factory from 'js/application/factory/Factory.jsx';
 import CommentList from 'js/application/commentList/CommentList.jsx';
 import PersonInfo from 'js/application/personInfo/PersonInfo.jsx';
 import DownSale from 'js/application/downSale/DownSale.jsx';
+import MyBills from 'js/application/myBills/MyBills.jsx';
+
 
 class Entrance {
 
@@ -56,6 +58,7 @@ class Entrance {
 			<Route path="commentList/:bid" component={CommentList}/>
 			<Route path="personInfo/:uid" component={PersonInfo}/>
             <Route path="bill" component={DownSale}/>
+            <Route path="myBills" component={MyBills}/>
             </Router>
     ), document.querySelector('#view'));
     }

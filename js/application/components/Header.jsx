@@ -50,7 +50,9 @@ class Header extends React.Component {
 			  showMenuIconButton={false}
 			  style={style}
               iconClassNameLeft={ this.props.iconClassNameLeft }
-              iconClassNameRight={ this.props.iconClassNameRight } 
+              iconClassNameRight={ this.props.iconClassNameRight }
+              iconElementLeft={this.props.iconElementLeft}
+              iconElementRight={this.props.iconElementRight}      
               onLeftIconButtonTouchTap={ this._onLeftClick.bind(this) }
 			  onRightIconButtonTouchTap={ this._onRightClick.bind(this) }
               zDepth={ this.state.zDepth } />
