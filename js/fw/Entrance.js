@@ -21,6 +21,7 @@ import CommentList from 'js/application/commentList/CommentList.jsx';
 import PersonInfo from 'js/application/personInfo/PersonInfo.jsx';
 import DownSale from 'js/application/downSale/DownSale.jsx';
 import MyBills from 'js/application/myBills/MyBills.jsx';
+import BillDetail from 'js/application/billDetail/BillDetail.jsx';
 
 
 class Entrance {
@@ -59,6 +60,7 @@ class Entrance {
 			<Route path="personInfo/:uid" component={PersonInfo}/>
             <Route path="bill" component={DownSale}/>
             <Route path="myBills" component={MyBills}/>
+            <Route path="billDetail/:bid" component={BillDetail}/>
             </Router>
     ), document.querySelector('#view'));
     }

@@ -67,7 +67,7 @@ class PersonInfo extends React.Component {
 					<CardHeader
 					  title={this.state.userInfo.name}
 					  subtitle={this.state.userInfo.major_business}
-					  avatar="http://lorempixel.com/100/100/nature/"
+					  avatar={this.state.userInfo.avatar}
 					/>
 					<CardText>{this.state.userInfo.province} {this.state.userInfo.city}</CardText>
 					<CardText>{this.state.userInfo.mobile}</CardText>

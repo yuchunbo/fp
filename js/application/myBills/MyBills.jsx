@@ -61,7 +61,7 @@ class MyBills extends React.Component {
 
 
     hrefPersenInfo(bid){
-        location.href = './#/detail/'+bid;
+        location.href = './#/billDetail/'+bid;
     }
 
 

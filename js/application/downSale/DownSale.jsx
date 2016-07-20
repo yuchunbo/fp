@@ -85,7 +85,7 @@ class DownSale extends React.Component {
     }
 
     hrefPersenInfo(bid){
-        location.href = './#/detail/'+bid;
+        location.href = './#/billDetail/'+bid;
     }
 
     render() {

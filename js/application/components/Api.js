@@ -12,7 +12,9 @@ let restArr = (api) => {
 		commentList : ['Transaction/getCommentList','get'],
 		seekUsers : ['Userinfo/seekUsers','get'],
 		userDetail:['Userinfo/detail','get'],
-		billList:['Transaction/billList','get']
+		billList:['Transaction/billList','get'],
+		billDetail:['Transaction/billDetail','get'],  //拉取甩单详细信息
+		submitComment:['Transaction/comment','post']    //提交甩单评论
 	}
 	return arr[api];
 }
