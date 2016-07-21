@@ -55,7 +55,7 @@ class Footer extends React.Component {
 				<Tab
 				  icon={<FontIcon className="material-icons">account_circle</FontIcon>}
 				  label="我"
-				  value="me"
+				  value="myHome"
 				/>
 			  </Tabs>
             </footer>
