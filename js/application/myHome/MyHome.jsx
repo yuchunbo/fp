@@ -47,24 +47,24 @@ class MyHome extends React.Component {
         let innerText = event.target.innerText;
         let href;
         switch (innerText){
-            case '公司名称':{
-                href = './#/company';
+            case '我关注的':{
+                href = './#/follow/er';
                 break;
             }
-            case '公司地址':{
-                href = './#/companyAddress';
+            case '关注我的':{
+                href = './#/follow/ee';
                 break;
             }
-            case '她的标签':{
-                href = './#/label';
+            case '我的业务':{
+                href = './#/myBusiness';
                 break;
             }
-            case '她的业务':{
-                href = './#/business';
+            case '我的收藏':{
+                href = './#/myCollection';
                 break;
             }
-            case '主营业务':{
-                href = './#/major';
+            case '我的设置':{
+                href = './#/setting';
                 break;
             }
         }
@@ -101,19 +101,19 @@ class MyHome extends React.Component {
                         <TableBody
                             displayRowCheckbox={false}>
                             <TableRow>
-                                <TableRowColumn><FlatButton label="公司名称" onClick={this.hrefSubpage.bind(this)}/></TableRowColumn>
+                                <TableRowColumn><FlatButton label="我关注的" onClick={this.hrefSubpage.bind(this)}/></TableRowColumn>
                             </TableRow>
                             <TableRow>
-                                <TableRowColumn><FlatButton label="公司地址" onClick={this.hrefSubpage.bind(this)}/></TableRowColumn>
+                                <TableRowColumn><FlatButton label="关注我的" onClick={this.hrefSubpage.bind(this)}/></TableRowColumn>
                             </TableRow>
                             <TableRow>
-                                <TableRowColumn><FlatButton label="她的标签" onClick={this.hrefSubpage.bind(this)}/></TableRowColumn>
+                                <TableRowColumn><FlatButton label="我的业务" onClick={this.hrefSubpage.bind(this)}/></TableRowColumn>
                             </TableRow>
                             <TableRow>
-                                <TableRowColumn><FlatButton label="她的业务" onClick={this.hrefSubpage.bind(this)}/></TableRowColumn>
+                                <TableRowColumn><FlatButton label="我的收藏" onClick={this.hrefSubpage.bind(this)}/></TableRowColumn>
                             </TableRow>
                             <TableRow>
-                                <TableRowColumn><FlatButton label="主营业务" onClick={this.hrefSubpage.bind(this)}/></TableRowColumn>
+                                <TableRowColumn><FlatButton label="我的设置" onClick={this.hrefSubpage.bind(this)}/></TableRowColumn>
                             </TableRow>
                         </TableBody>
                     </Table>

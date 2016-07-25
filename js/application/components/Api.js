@@ -11,10 +11,11 @@ let restArr = (api) => {
 		register : ['Logreg/register','post'],
 		commentList : ['Transaction/getCommentList','get'],
 		seekUsers : ['Userinfo/seekUsers','get'],
-		userDetail:['Userinfo/detail','get'],
-		billList:['Transaction/billList','get'],
+		userDetail:['Userinfo/detail','get'],   
+		billList:['Transaction/billList','get'],      //拉取订单列表
 		billDetail:['Transaction/billDetail','get'],  //拉取甩单详细信息
-		submitComment:['Transaction/comment','post']    //提交甩单评论
+		submitComment:['Transaction/comment','post'],    //提交甩单评论
+		relation:['Userinfo/relation','get']     //获取关注用户列表
 	}
 	return arr[api];
 }
