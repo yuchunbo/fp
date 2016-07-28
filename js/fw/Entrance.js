@@ -24,6 +24,7 @@ import MyBills from 'js/application/myBills/MyBills.jsx';
 import BillDetail from 'js/application/billDetail/BillDetail.jsx';
 import MyHome from 'js/application/myHome/MyHome.jsx';
 import Follow from 'js/application/follow/Follow.jsx';
+import EditUserInfo from 'js/application/editUserInfo/EditUserInfo.jsx';
 
 
 class Entrance {
@@ -65,6 +66,7 @@ class Entrance {
             <Route path="billDetail/:bid" component={BillDetail}/>
             <Route path="myHome" component={MyHome}/>
             <Route path="follow/:type" component={Follow}/>
+            <Route path="editUserInfo" component={EditUserInfo}/>
             </Router>
     ), document.querySelector('#view'));
     }

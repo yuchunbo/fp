@@ -70,6 +70,10 @@ class MyHome extends React.Component {
         }
         location.href = href;
     }
+    
+    hrefUserInfo(){
+        location.href = './#/editUserInfo';
+    }
 
     handleOpen() {
         this.setState({open: true});
@@ -95,6 +99,7 @@ class MyHome extends React.Component {
                             title={this.state.userInfo.name}
                             subtitle={this.state.userInfo.major_business}
                             avatar={this.state.userInfo.avatar}
+                            onClick={this.hrefUserInfo.bind(this)}
                         />
                     </Card>
                     <Table>
